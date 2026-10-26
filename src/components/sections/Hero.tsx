@@ -113,20 +113,20 @@ export const Hero: React.FC = () => {
               <div className="relative rounded-3xl overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl p-3 sm:p-4">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-brand-navy-dark">
                   <img
-                    src="/images/vehicles/urbania/urbania-outdoor.jpg"
-                    alt="Rayyan Travels Force Urbania Commercial Permit Van"
+                    src="/images/vehicles/rumion/rumion-front.jpg"
+                    alt="Rayyan Travels Toyota Rumion Commercial Fleet Car"
                     className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-3 left-3 bg-brand-navy/90 backdrop-blur-md text-brand-gold text-xs font-bold px-3 py-1.5 rounded-full border border-brand-gold/30 flex items-center gap-1.5 shadow-md">
                     <Shield className="w-3.5 h-3.5 text-brand-gold" />
-                    All India Permit • Commercial Fleet
+                    Toyota Rumion • Commercial Fleet
                   </div>
                   <div className="absolute bottom-3 left-3 right-3 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 rounded-xl backdrop-blur-[2px]">
                     <div className="text-white font-bold text-base sm:text-lg font-heading">
-                      Force Urbania, Tempo Traveller &amp; Innova
+                      Toyota Rumion &amp; All India Fleet
                     </div>
                     <p className="text-xs text-gray-200 mt-0.5">
-                      Available for Pan-India tours, family vacations, corporate trips &amp; wedding fleets.
+                      Available for Pan-India tours, family travel, outstation trips &amp; airport transfers.
                     </p>
                   </div>
                 </div>
