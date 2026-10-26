@@ -3,43 +3,43 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { 
   CarFront, 
   MapPin, 
-  KeyRound, 
+  ShieldCheck, 
   Users, 
   MessageSquare, 
-  SlidersHorizontal 
+  CheckCircle2 
 } from 'lucide-react';
 
 export const WhyChooseUs: React.FC = () => {
   const reasons = [
     {
-      title: "Multiple Vehicle Options",
-      description: "Enquire about Toyota Rumion, Innova Crysta, Force Urbania, and Kia vehicles.",
+      title: "All Taxi Passing Vehicles",
+      description: "100% commercial permit fleet with All India permits for hassle-free interstate and state border travel.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Complete Vehicle Range",
+      description: "Enquire about Force Urbania, Tempo Traveller, Innova Crysta, Toyota Rumion, SUVs (Hyundai Venue), and Sedans.",
       icon: CarFront,
     },
     {
-      title: "Multiple Travel Services",
-      description: "Airport transfers, city cabs, rental cabs, outstation trips, and more.",
+      title: "All India Tour Service",
+      description: "Customized holiday packages, religious pilgrimages, and outstation round-trip journeys across India.",
       icon: MapPin,
     },
     {
-      title: "Rental Cab Enquiries",
-      description: "Discuss the vehicle and rental arrangement suitable for your journey.",
-      icon: KeyRound,
-    },
-    {
-      title: "Group Travel Options",
-      description: "Enquire about vehicles for group transportation and events.",
+      title: "Specialist Group Transportation",
+      description: "High-capacity Force Urbania and commercial Tempo Travellers for large family tours and wedding parties.",
       icon: Users,
     },
     {
-      title: "Direct Communication",
-      description: "Contact the team by phone, WhatsApp, or email.",
+      title: "Direct 24/7 Communication",
+      description: "Contact the team directly via phone (+91 8469429773 / +91 7048241603) or instant WhatsApp.",
       icon: MessageSquare,
     },
     {
-      title: "Flexible Travel Enquiries",
-      description: "Share your travel requirements to discuss available options.",
-      icon: SlidersHorizontal,
+      title: "Honest & Reliable Service",
+      description: "Discuss vehicle availability, driver allocation, and terms upfront with complete transparency.",
+      icon: CheckCircle2,
     },
   ];
 
@@ -47,9 +47,9 @@ export const WhyChooseUs: React.FC = () => {
     <section className="py-20 md:py-28 bg-[#F5F7FA]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Trust & Reliability"
+          eyebrow="Commercial Fleet & Experience"
           title="WHY CHOOSE RAYYAN TRAVELS?"
-          description="We take pride in delivering honest communication, well-maintained vehicles, and adaptable travel arrangements tailored to your schedule."
+          description="We take pride in delivering honest communication, well-maintained commercial vehicles, and adaptable travel arrangements for All India tours and local rides."
           align="center"
         />
 

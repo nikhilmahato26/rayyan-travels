@@ -7,9 +7,9 @@ export interface BusinessInfo {
   };
   phones: {
     primary: string;
-    primaryClean: string; // for tel: and wa.me
-    additional: string[];
-    additionalClean: string[];
+    primaryClean: string; // for tel: and wa.me (8469429773)
+    secondary: string;
+    secondaryClean: string; // (7048241603)
   };
   email: string;
   location: {
@@ -22,27 +22,22 @@ export interface BusinessInfo {
   };
   services: string[];
   vehicles: string[];
+  permitBadge: string;
   disclaimerNote: string;
 }
 
 export const BUSINESS_CONFIG: BusinessInfo = {
   name: "Rayyan Travels & Cab Service",
-  tagline: "Your Journey, Our Priority",
+  tagline: "All India Tour & Cab Service — Your Journey, Our Priority",
   wordmark: {
     primary: "RAYYAN TRAVELS",
-    secondary: "CAB SERVICE",
+    secondary: "ALL INDIA CAB & TOUR SERVICE",
   },
   phones: {
-    primary: "+91 7048241603",
-    primaryClean: "917048241603",
-    additional: [
-      "+91 8469429773",
-      "+91 9510955516",
-    ],
-    additionalClean: [
-      "918469429773",
-      "919510955516",
-    ],
+    primary: "+91 8469429773",
+    primaryClean: "918469429773",
+    secondary: "+91 7048241603",
+    secondaryClean: "917048241603",
   },
   email: "jazbisheikh@gmail.com",
   location: {
@@ -51,31 +46,35 @@ export const BUSINESS_CONFIG: BusinessInfo = {
     country: "India",
     fullAddress: "Office No. 581, Kolva, Taiwad Main Road, District Navsari, Gujarat – 396350.",
     serviceAreas: [
-      "Navsari",
-      "Surat",
-      "South Gujarat",
-      "Outstation enquiries across India",
+      "All India Tour & Travel",
+      "Gujarat Outstation & Intercity",
+      "Navsari & Surat Local Pickups",
+      "All Major Airport Transfers (Surat, Mumbai, Ahmedabad)",
     ],
     googleMapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Office No. 581, Kolva, Taiwad Main Road, District Navsari, Gujarat 396350")}`,
   },
+  permitBadge: "All Taxi Passing Vehicles • All India Commercial Permit",
   services: [
+    "All India Tour Packages",
+    "Rental Cab Service",
+    "Outstation Round Trips & One Way",
     "Airport Pickup & Drop",
     "Airport Round Trips",
-    "Rental Cab Service",
     "Local City Cab Service",
-    "Outstation Trips",
-    "Local Sightseeing",
-    "Tour Packages",
-    "Corporate Rides",
-    "Weddings, Parties & Events",
-    "Group Transportation",
+    "Sightseeing & Heritage Tours",
+    "Corporate & Business Travel",
+    "Weddings & Event Fleets",
+    "Group Transportation (Urbania & Tempo Traveller)",
   ],
   vehicles: [
-    "Toyota Rumion",
     "Force Urbania",
+    "Force Tempo Traveller",
     "Toyota Innova Crysta",
-    "Kia Vehicle",
+    "Toyota Rumion",
+    "SUV (Hyundai Venue & More)",
+    "Comfort Sedan",
+    "Kia Vehicles",
     "Any Available Vehicle",
   ],
-  disclaimerNote: "Vehicle availability and applicable rental charges are confirmed by the business at the time of enquiry.",
+  disclaimerNote: "All taxi passing vehicles with All India Permit. Vehicle availability and rental charges are confirmed by the business at the time of enquiry.",
 };

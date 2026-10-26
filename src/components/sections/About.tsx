@@ -14,13 +14,13 @@ export const About: React.FC = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-slate-200 bg-white p-3">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100">
                 <img
-                  src="/images/vehicles/rumion/rumion-rear.jpg"
-                  alt="Rayyan Travels Toyota Rumion with official Navsari commercial decals"
+                  src="/images/vehicles/urbania/urbania-outdoor.jpg"
+                  alt="Rayyan Travels Force Urbania Commercial All India Permit Fleet"
                   className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3 bg-brand-navy/90 text-brand-gold text-xs font-bold px-3 py-1.5 rounded-full border border-brand-gold/30 flex items-center gap-1.5 shadow-md">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  Rayyan Travels • Navsari
+                  All India Commercial Fleet
                 </div>
               </div>
 
@@ -31,7 +31,7 @@ export const About: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 text-brand-muted">
                   <Car className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                  <span>Toyota Rumion, Innova Crysta, Force Urbania &amp; Kia</span>
+                  <span>Force Urbania, Tempo Traveller, Innova Crysta, Rumion, SUV &amp; Sedan</span>
                 </div>
               </div>
             </div>
@@ -41,35 +41,39 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-blue-light text-brand-blue text-xs font-bold uppercase tracking-wider border border-brand-blue/20">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
-              About Our Business
+              All India Tour &amp; Cab Service
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-navy font-heading tracking-tight leading-tight">
-              YOUR TRAVEL PARTNER IN NAVSARI &amp; SURAT
+              YOUR TRUSTED ALL INDIA TOUR &amp; CAB PARTNER
             </h2>
 
-            {/* Prescribed Copy verbatim */}
             <p className="text-base sm:text-lg text-brand-muted leading-relaxed">
-              Rayyan Travels &amp; Cab Service is based in Navsari, Gujarat, and serves customers enquiring about airport transfers, local city cab services, rental cabs, outstation trips, sightseeing, tour packages, corporate rides, and group transportation. Our vehicle options include Toyota Rumion, Force Urbania, Toyota Innova Crysta, and Kia vehicles.
+              Rayyan Travels &amp; Cab Service provides dependable All India Tour and cab services with complete commercial taxi passing vehicles. 
+              Serving customers with airport transfers, local city cab services, rental cabs, outstation trips, sightseeing, holiday tour packages, corporate rides, and group transportation across India.
+            </p>
+
+            <p className="text-sm text-brand-muted leading-relaxed">
+              Our comprehensive commercial fleet includes <strong className="text-brand-navy">Force Urbania</strong>, <strong className="text-brand-navy">Force Tempo Traveller</strong>, <strong className="text-brand-navy">Toyota Innova Crysta</strong>, <strong className="text-brand-navy">Toyota Rumion</strong>, <strong className="text-brand-navy">SUVs (Hyundai Venue &amp; more)</strong>, and <strong className="text-brand-navy">Comfort Sedans</strong>, all equipped with valid commercial permits for pan-India travel.
             </p>
 
             {/* Service & Operational Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-brand-navy">Navsari &amp; Surat Service Coverage</span>
+                <span className="text-xs sm:text-sm font-semibold text-brand-navy">All Taxi Passing Commercial Fleet</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-brand-navy">All India Permit Travel Options</span>
+                <span className="text-xs sm:text-sm font-semibold text-brand-navy">All India Permit Interstate Tours</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-brand-navy">Flexible Local &amp; Outstation Rentals</span>
+                <span className="text-xs sm:text-sm font-semibold text-brand-navy">Urbania &amp; Tempo Traveller Specialists</span>
               </div>
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-semibold text-brand-navy">Direct WhatsApp &amp; Phone Enquiries</span>
+                <span className="text-xs sm:text-sm font-semibold text-brand-navy">Helpline: +91 8469429773 / 7048241603</span>
               </div>
             </div>
 

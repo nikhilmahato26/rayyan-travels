@@ -5,10 +5,10 @@ export function App() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Rayyan Travels &amp; Cab Service | Cab Rental in Navsari &amp; Surat</title>
+        <title>Rayyan Travels &amp; Cab Service | All India Tour &amp; Cab Service</title>
         <meta
           name="description"
-          content="Rayyan Travels &amp; Cab Service offers cab rental enquiries, airport pickup and drop, local city travel, outstation trips, sightseeing, tour packages, corporate rides, and group transportation in Navsari and Surat, Gujarat."
+          content="Rayyan Travels &amp; Cab Service offers All India Tour packages and commercial taxi passing cabs. Fleet includes Force Urbania, Tempo Traveller, Toyota Innova Crysta, Toyota Rumion, SUVs (Hyundai Venue), and Sedans."
         />
         <link rel="canonical" href="https://rayyantravels.com" />
       </Helmet>

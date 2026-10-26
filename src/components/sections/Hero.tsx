@@ -1,32 +1,32 @@
 import React from 'react';
-import { CalendarCheck, Car, Plane, MapPin, Users, Shield, ArrowRight, Phone } from 'lucide-react';
+import { CalendarCheck, Car, Plane, MapPin, Users, Shield, ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { scrollToSection, getCallHref } from '../../utils/contact';
 import { BUSINESS_CONFIG } from '../../config/business';
 
 export const Hero: React.FC = () => {
   const highlights = [
+    { title: "All India Tour Service", icon: MapPin, isFeatured: true },
+    { title: "Urbania & Tempo Traveller", icon: Users, isFeatured: true },
+    { title: "Innova Crysta, Rumion & SUVs", icon: Car },
     { title: "Airport Pickup & Drop", icon: Plane },
-    { title: "Rental Cab Service", icon: Car, isFeatured: true },
-    { title: "Local & Outstation Travel", icon: MapPin },
-    { title: "Group Transportation", icon: Users },
   ];
 
   return (
-    <section id="hero" className="relative overflow-hidden bg-gradient-to-b from-[#0e213d] via-[#102747] to-[#15345d] text-white pt-10 pb-20 md:pt-16 md:pb-28">
+    <section id="hero" className="relative overflow-hidden bg-gradient-to-b from-[#0a182c] via-[#102747] to-[#14325a] text-white pt-10 pb-20 md:pt-16 md:pb-28">
       {/* Background Graphic Elements */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#E7B44A_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-gold/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Heading and CTAs */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
-              NAVSARI &amp; SURAT • GUJARAT
+              ALL INDIA TOUR &amp; CAB SERVICE • COMMERCIAL PERMIT
             </div>
 
             {/* Main Heading */}
@@ -39,9 +39,16 @@ export const Hero: React.FC = () => {
 
             {/* Supporting Text */}
             <p className="text-base sm:text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              From airport transfers and city rides to outstation journeys, sightseeing, and group travel, 
-              <strong className="text-white font-semibold"> Rayyan Travels &amp; Cab Service</strong> helps you plan convenient journeys with the right vehicle for your requirements.
+              From All India holiday tours and outstation journeys to airport transfers and group travel, 
+              <strong className="text-white font-semibold"> Rayyan Travels &amp; Cab Service</strong> provides all taxi passing vehicles with All India commercial permits. 
+              Choose from Force Urbania, Tempo Traveller, Toyota Innova Crysta, Toyota Rumion, SUVs (Hyundai Venue), and comfortable Sedans.
             </p>
+
+            {/* Permit Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-amber-400/20 border border-amber-300/40 text-amber-200 text-xs sm:text-sm font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-brand-gold flex-shrink-0" />
+              <span>All Taxi Passing Vehicles • All India Commercial Permit</span>
+            </div>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
@@ -53,7 +60,7 @@ export const Hero: React.FC = () => {
                 rightIcon={<ArrowRight className="w-5 h-5" />}
                 className="w-full sm:w-auto text-base"
               >
-                BOOK A CAB
+                BOOK ALL INDIA CAB
               </Button>
 
               <Button
@@ -106,20 +113,20 @@ export const Hero: React.FC = () => {
               <div className="relative rounded-3xl overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl p-3 sm:p-4">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-brand-navy-dark">
                   <img
-                    src="/images/vehicles/rumion/rumion-front.jpg"
-                    alt="Rayyan Travels Toyota Rumion Fleet Car"
+                    src="/images/vehicles/urbania/urbania-outdoor.jpg"
+                    alt="Rayyan Travels Force Urbania Commercial Permit Van"
                     className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-3 left-3 bg-brand-navy/90 backdrop-blur-md text-brand-gold text-xs font-bold px-3 py-1.5 rounded-full border border-brand-gold/30 flex items-center gap-1.5 shadow-md">
                     <Shield className="w-3.5 h-3.5 text-brand-gold" />
-                    Rayyan Travels Fleet
+                    All India Permit • Commercial Fleet
                   </div>
                   <div className="absolute bottom-3 left-3 right-3 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 rounded-xl backdrop-blur-[2px]">
                     <div className="text-white font-bold text-base sm:text-lg font-heading">
-                      Toyota Rumion &amp; Premium MPVs
+                      Force Urbania, Tempo Traveller &amp; Innova
                     </div>
                     <p className="text-xs text-gray-200 mt-0.5">
-                      Available for rental cab bookings, airport drops &amp; outstation travel.
+                      Available for Pan-India tours, family vacations, corporate trips &amp; wedding fleets.
                     </p>
                   </div>
                 </div>
@@ -127,16 +134,16 @@ export const Hero: React.FC = () => {
                 {/* Sub-features ticker */}
                 <div className="grid grid-cols-3 gap-2 mt-3 text-center">
                   <div className="bg-white/10 rounded-xl p-2.5 border border-white/10">
-                    <span className="block text-brand-gold font-extrabold text-sm sm:text-base">Navsari</span>
-                    <span className="block text-[10px] text-gray-300 uppercase tracking-wide">Base Station</span>
+                    <span className="block text-brand-gold font-extrabold text-sm sm:text-base">All India</span>
+                    <span className="block text-[10px] text-gray-300 uppercase tracking-wide">Tour Permit</span>
                   </div>
                   <div className="bg-white/10 rounded-xl p-2.5 border border-white/10">
-                    <span className="block text-brand-gold font-extrabold text-sm sm:text-base">Surat</span>
-                    <span className="block text-[10px] text-gray-300 uppercase tracking-wide">City &amp; Airport</span>
+                    <span className="block text-brand-gold font-extrabold text-sm sm:text-base">Taxi Passing</span>
+                    <span className="block text-[10px] text-gray-300 uppercase tracking-wide">Commercial</span>
                   </div>
                   <div className="bg-white/10 rounded-xl p-2.5 border border-white/10">
-                    <span className="block text-brand-gold font-extrabold text-sm sm:text-base">Outstation</span>
-                    <span className="block text-[10px] text-gray-300 uppercase tracking-wide">Pan Gujarat</span>
+                    <span className="block text-brand-gold font-extrabold text-sm sm:text-base">24/7 Service</span>
+                    <span className="block text-[10px] text-gray-300 uppercase tracking-wide">Pan India</span>
                   </div>
                 </div>
               </div>

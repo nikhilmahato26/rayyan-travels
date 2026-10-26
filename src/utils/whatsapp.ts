@@ -27,7 +27,7 @@ export function buildWhatsAppUrl(message: string, phone: string = BUSINESS_CONFI
  * General Enquiry WhatsApp Message
  */
 export function getGeneralEnquiryMessage(): string {
-  return `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about your cab rental and travel services. Please contact me with the available options and rates.`;
+  return `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about your All India Tour and cab rental services. Please share the available options and rates.`;
 }
 
 /**
@@ -42,18 +42,18 @@ export function getRentalCabEnquiryMessage(details?: {
   rentalType?: string;
 }): string {
   const lines: string[] = [
-    `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about your rental cab service.`,
+    `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about your rental cab / All India tour service.`,
     '',
-    `Pickup Location: ${details?.pickup || 'Navsari / Surat'}`,
-    `Destination: ${details?.destination || 'To be discussed'}`,
+    `Pickup Location: ${details?.pickup || 'Pickup city / location'}`,
+    `Destination: ${details?.destination || 'Outstation / All India Tour'}`,
     `Travel Date: ${details?.travelDate || 'Flexible'}`,
   ];
 
   if (details?.returnDate) {
     lines.push(`Return Date: ${details.returnDate}`);
   }
-  lines.push(`Preferred Vehicle: ${details?.vehicle || 'Toyota Rumion / Innova Crysta'}`);
-  lines.push(`Rental Type: ${details?.rentalType || 'Rental Cab'}`);
+  lines.push(`Preferred Vehicle: ${details?.vehicle || 'Force Urbania / Tempo Traveller / Innova Crysta / Rumion'}`);
+  lines.push(`Rental Type: ${details?.rentalType || 'All India Tour / Rental Cab'}`);
   lines.push('');
   lines.push('Please share the availability, rental charges, and booking terms.');
 
@@ -73,7 +73,7 @@ export function getAirportEnquiryMessage(details?: {
   const lines: string[] = [
     `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about airport pickup/drop or round-trip service.`,
     '',
-    `Pickup Location: ${details?.pickup || 'Navsari / Surat'}`,
+    `Pickup Location: ${details?.pickup || 'Your Location'}`,
     `Airport / Destination: ${details?.destination || 'Surat / Mumbai / Ahmedabad Airport'}`,
     `Travel Date: ${details?.travelDate || 'Flexible'}`,
   ];
@@ -98,18 +98,18 @@ export function getTourEnquiryMessage(details?: {
   vehicle?: string;
 }): string {
   const lines: string[] = [
-    `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about a tour package or sightseeing trip.`,
+    `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about an All India tour package or outstation trip.`,
     '',
-    `Preferred Destination: ${details?.destination || 'Gujarat Getaway / Outstation'}`,
+    `Preferred Destination: ${details?.destination || 'All India Tour / Holiday Destination'}`,
     `Travel Date: ${details?.travelDate || 'Flexible'}`,
   ];
 
   if (details?.numberOfTravellers) {
     lines.push(`Number of Travellers: ${details.numberOfTravellers}`);
   }
-  lines.push(`Preferred Vehicle: ${details?.vehicle || 'Toyota Rumion / Force Urbania'}`);
+  lines.push(`Preferred Vehicle: ${details?.vehicle || 'Urbania / Tempo Traveller / Innova Crysta'}`);
   lines.push('');
-  lines.push('Please contact me with the available options.');
+  lines.push('Please contact me with the available options and itinerary details.');
 
   return lines.join('\n');
 }
@@ -121,7 +121,7 @@ export function getVehicleEnquiryMessage(vehicleName: string, category: string):
   return [
     `Hello ${BUSINESS_CONFIG.name}, I would like to enquire about booking the ${vehicleName} (${category}).`,
     '',
-    'Please share the availability, rental options, and applicable charges.',
+    'Please share the availability, All India commercial permit details, and applicable charges.',
   ].join('\n');
 }
 
@@ -131,7 +131,7 @@ export function getVehicleEnquiryMessage(vehicleName: string, category: string):
  */
 export function formatBookingEnquiryWhatsAppMessage(data: BookingEnquiryData): string {
   const lines: string[] = [
-    `*NEW CAB & TRAVEL ENQUIRY*`,
+    `*NEW CAB & ALL INDIA TOUR ENQUIRY*`,
     `*${BUSINESS_CONFIG.name}*`,
     '--------------------------------',
     `*Customer Name:* ${data.fullName}`,
@@ -173,7 +173,7 @@ export function formatBookingEnquiryWhatsAppMessage(data: BookingEnquiryData): s
   }
 
   lines.push('--------------------------------');
-  lines.push('_Note: This is an enquiry request and booking is subject to confirmation of vehicle availability and applicable charges._');
+  lines.push('_Note: All taxi passing vehicles with commercial permit. Booking is subject to confirmation of vehicle availability and applicable charges._');
 
   return lines.join('\n');
 }

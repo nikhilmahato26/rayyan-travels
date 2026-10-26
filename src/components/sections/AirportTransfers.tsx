@@ -22,13 +22,13 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
     {
       id: 'Airport Drop',
       title: 'Airport Drop',
-      desc: 'Prompt cab departure from your home, office, or hotel in Navsari/Surat to the airport terminal.',
+      desc: 'Prompt cab departure to Surat Airport, Mumbai Airport (T1/T2), or Ahmedabad International Terminal.',
       icon: Plane,
     },
     {
       id: 'Airport Pickup',
       title: 'Airport Pickup',
-      desc: 'Convenient arrivals pickup from Surat, Mumbai, or Ahmedabad airports back to your home.',
+      desc: 'Convenient arrivals pickup from Surat, Mumbai, or Ahmedabad airports with driver meet-and-greet.',
       icon: Plane,
     },
     {
@@ -57,7 +57,7 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
       `*Vehicle Preference:* ${vehiclePreference}`,
       `*Contact Number:* ${contactNumber}`,
       '',
-      '_Note: This is an airport transfer enquiry. Vehicle availability and applicable charges are confirmed by the business._'
+      '_Note: All taxi passing commercial vehicles. Vehicle availability and applicable charges are confirmed by the business._'
     ].filter(Boolean).join('\n');
 
     const url = buildWhatsAppUrl(message, BUSINESS_CONFIG.phones.primaryClean);
@@ -66,15 +66,14 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
 
   return (
     <section id="airport-transfers" className="py-20 md:py-28 bg-[#0F223D] text-white relative overflow-hidden">
-      {/* Background accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
-          eyebrow="Reliable Terminal Transfers"
+          eyebrow="Commercial Airport Transfers"
           title="AIRPORT TRANSFERS MADE SIMPLE"
-          description="Contact Rayyan Travels & Cab Service to enquire about airport pickup, airport drop, and airport round-trip transportation."
+          description="Contact Rayyan Travels & Cab Service to enquire about airport pickup, airport drop, and airport round-trip transportation for Surat, Mumbai, and Ahmedabad airports."
           align="center"
           dark={true}
         />
@@ -146,7 +145,7 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Navsari / Taiwad"
+                  placeholder="e.g. Navsari / Surat / Your Address"
                   value={pickupLocation}
                   onChange={(e) => setPickupLocation(e.target.value)}
                   className="w-full text-sm px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:bg-white/20"
@@ -210,9 +209,12 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
                   className="w-full text-sm px-3.5 py-2.5 rounded-xl bg-brand-navy border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-gold"
                 >
                   <option value="Any Available Vehicle">Any Available Vehicle</option>
-                  <option value="Toyota Rumion">Toyota Rumion</option>
-                  <option value="Toyota Innova Crysta">Toyota Innova Crysta</option>
                   <option value="Force Urbania">Force Urbania</option>
+                  <option value="Tempo Traveller">Tempo Traveller</option>
+                  <option value="Toyota Innova Crysta">Toyota Innova Crysta</option>
+                  <option value="Toyota Rumion">Toyota Rumion</option>
+                  <option value="SUV (Hyundai Venue & More)">SUV (Hyundai Venue & More)</option>
+                  <option value="Comfort Sedan">Comfort Sedan</option>
                   <option value="Kia Vehicle">Kia Vehicle</option>
                 </select>
               </div>
@@ -226,7 +228,7 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
                 <input
                   type="tel"
                   required
-                  placeholder="e.g. 7048241603"
+                  placeholder="e.g. 8469429773"
                   value={contactNumber}
                   onChange={(e) => setContactNumber(e.target.value)}
                   className="w-full text-sm px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:bg-white/20"
@@ -237,7 +239,7 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10">
               <div className="flex items-center gap-2 text-xs text-gray-300">
                 <ShieldCheck className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                <span>Enquiries confirmed directly with driver allocation &amp; rate.</span>
+                <span>All taxi passing commercial vehicles with All India permit.</span>
               </div>
 
               <Button

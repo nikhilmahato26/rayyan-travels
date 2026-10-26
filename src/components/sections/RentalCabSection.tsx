@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, CalendarCheck, ArrowRight, Shield } from 'lucide-react';
+import { MessageCircle, CalendarCheck, ArrowRight, Shield, CheckCircle2 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
 import { BUSINESS_CONFIG } from '../../config/business';
@@ -10,44 +10,58 @@ interface RentalCabSectionProps {
 }
 
 export const RentalCabSection: React.FC<RentalCabSectionProps> = ({ onSelectRentalCab }) => {
-  const [selectedRentalType, setSelectedRentalType] = useState('Local Rental');
+  const [selectedRentalType, setSelectedRentalType] = useState('All India Tour Rental');
 
   const rentalTypes = [
-    { id: 'Local Rental', label: 'Local Rental', desc: 'Navsari & Surat city rides and local travel' },
-    { id: 'Outstation Rental', label: 'Outstation Rental', desc: 'Intercity and round trips across Gujarat' },
-    { id: 'Airport Rental', label: 'Airport Rental', desc: 'Dedicated cabs for airport transfers' },
-    { id: 'Event Rental', label: 'Event Rental', desc: 'Weddings, functions & social gatherings' },
-    { id: 'Group Rental', label: 'Group Rental', desc: 'Spacious transport for family and group tours' },
+    { id: 'All India Tour Rental', label: 'All India Tour', desc: 'Interstate holiday packages & tours' },
+    { id: 'Group Tour Rental', label: 'Urbania & Traveller', desc: 'Large groups, wedding parties & pilgrimages' },
+    { id: 'Outstation Rental', label: 'Outstation Trips', desc: 'One way & round trips across India' },
+    { id: 'Airport Rental', label: 'Airport Transfers', desc: 'Surat, Mumbai & Ahmedabad airport runs' },
+    { id: 'Local Rental', label: 'Local City Rental', desc: 'Point-to-point and full-day city rides' },
   ];
 
   const rentalCategories = [
     {
-      title: "Family & Everyday Travel",
+      title: "Luxury Group Van",
+      vehicle: "Force Urbania",
+      badge: "Taxi Passing • All India Permit",
+      description: "Spacious luxury passenger van tailored for VIP group travel, family holidays, and wedding transportation.",
+      image: "/images/vehicles/urbania/urbania-outdoor.jpg",
+    },
+    {
+      title: "All India Group Travel",
+      vehicle: "Tempo Traveller",
+      badge: "Commercial Permit",
+      description: "High-capacity Force Tempo Traveller for long-distance group tours, pilgrimages, and outstation trips.",
+      image: "/images/vehicles/traveller/tempo-traveller.jpg",
+    },
+    {
+      title: "Executive MPV",
+      vehicle: "Toyota Innova Crysta",
+      badge: "Executive Comfort",
+      description: "Top-tier comfort and relaxed seating for family tours, executive trips, and outstation journeys.",
+      image: "/images/vehicles/innova/innova-crysta-real.jpg",
+    },
+    {
+      title: "Family Travel MPV",
       vehicle: "Toyota Rumion",
       badge: "Verified Fleet Car",
-      description: "An ideal choice for family journeys, city commutes, and everyday rental travel.",
+      description: "Rayyan Travels signature commercial MPV for family vacations, airport transfers, and outstation travel.",
       image: "/images/vehicles/rumion/rumion-front.jpg",
     },
     {
-      title: "Premium Travel",
-      vehicle: "Toyota Innova Crysta",
-      badge: "Executive Comfort",
-      description: "Superior comfort and relaxed seating for executive trips and outstation travel.",
-      image: "/images/vehicles/innova-crysta.jpg",
+      title: "Compact SUV",
+      vehicle: "SUV (Hyundai Venue & More)",
+      badge: "SUV Comfort",
+      description: "Modern, comfortable compact SUV for city commutes, weekend road trips, and airport drop-offs.",
+      image: "/images/vehicles/suv/hyundai-venue.jpg",
     },
     {
-      title: "Group Transportation",
-      vehicle: "Force Urbania",
-      badge: "Group Specialist",
-      description: "High-roof spacious travel van tailored for large groups, wedding parties, and group tours.",
-      image: "/images/vehicles/force-urbania.jpg",
-    },
-    {
-      title: "Kia Vehicles",
-      vehicle: "Kia Vehicle Options",
-      badge: "Modern Style",
-      description: "Modern, refined ride options. Contact our team to confirm current model availability.",
-      image: "/images/vehicles/kia-vehicle.jpg",
+      title: "Sedan Cab Service",
+      vehicle: "Comfort Sedan",
+      badge: "Economy & Style",
+      description: "Air-conditioned smooth sedans for prompt airport pickups, business meetings, and intercity routes.",
+      image: "/images/vehicles/sedan/sedan-cab.jpg",
     },
   ];
 
@@ -58,7 +72,7 @@ export const RentalCabSection: React.FC<RentalCabSectionProps> = ({ onSelectRent
   const whatsappUrl = buildWhatsAppUrl(
     getRentalCabEnquiryMessage({
       rentalType: selectedRentalType,
-      vehicle: 'Toyota Rumion / Innova Crysta',
+      vehicle: 'Force Urbania / Tempo Traveller / Innova Crysta / Rumion / SUV',
     }),
     BUSINESS_CONFIG.phones.primaryClean
   );
@@ -69,11 +83,19 @@ export const RentalCabSection: React.FC<RentalCabSectionProps> = ({ onSelectRent
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
-          eyebrow="RENTAL CAB SERVICE"
-          title="THE RIGHT CAB FOR YOUR NEXT JOURNEY"
-          description="Rayyan Travels & Cab Service offers rental cab enquiries for customers travelling from Navsari, Surat, and surrounding areas. Choose your preferred vehicle and contact the team to discuss your journey, rental duration, availability, and charges."
+          eyebrow="ALL INDIA CAB & RENTAL SERVICE"
+          title="THE RIGHT CAB FOR YOUR NEXT ALL INDIA JOURNEY"
+          description="Rayyan Travels & Cab Service offers commercial taxi passing rental cabs for All India tours, outstation trips, airport transfers, and local journeys. Choose from our luxury Force Urbania, Tempo Traveller, Toyota Innova Crysta, Toyota Rumion, SUVs (Hyundai Venue), and Sedans."
           align="center"
         />
+
+        {/* Permit Assurance Pill */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-amber-50 border border-amber-200 text-brand-navy text-xs sm:text-sm font-bold shadow-sm">
+            <CheckCircle2 className="w-4 h-4 text-amber-600" />
+            <span>All Taxi Passing Vehicles • All India Commercial Permit • 24/7 Service</span>
+          </div>
+        </div>
 
         {/* Rental Types Tabs Selector */}
         <div className="mb-12">
@@ -107,8 +129,8 @@ export const RentalCabSection: React.FC<RentalCabSectionProps> = ({ onSelectRent
           </div>
         </div>
 
-        {/* 4 Visual Category Options Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* 6 Visual Category Options Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {rentalCategories.map((cat, idx) => (
             <div
               key={idx}
@@ -122,7 +144,7 @@ export const RentalCabSection: React.FC<RentalCabSectionProps> = ({ onSelectRent
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-brand-navy/90 text-white text-[11px] font-bold px-2.5 py-1 rounded-full border border-white/20">
+                  <div className="absolute top-2.5 left-2.5 bg-brand-navy/90 text-brand-gold text-[11px] font-bold px-2.5 py-1 rounded-full border border-brand-gold/30">
                     {cat.badge}
                   </div>
                 </div>
@@ -161,13 +183,13 @@ export const RentalCabSection: React.FC<RentalCabSectionProps> = ({ onSelectRent
           <div className="space-y-2 text-center lg:text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-gold uppercase tracking-wider">
               <Shield className="w-4 h-4 text-brand-gold" />
-              Transparent Enquiries
+              All Taxi Passing Vehicles • Pan-India Permit
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-white">
               Contact Us For Rental Rates &amp; Availability
             </h3>
             <p className="text-sm text-gray-200 leading-relaxed">
-              Every trip is unique. Contact our team to discuss your pickup location, journey plan, vehicle preference, and get personalized rental details.
+              Every trip is unique. Contact our team at <strong className="text-brand-gold">{BUSINESS_CONFIG.phones.primary}</strong> to discuss your journey route, vehicle requirement, and get tailored rental packages.
             </p>
           </div>
 

@@ -10,7 +10,8 @@ import {
   MapPin, 
   Navigation, 
   ExternalLink, 
-  MessageCircle 
+  MessageCircle,
+  CheckCircle2 
 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
@@ -20,9 +21,9 @@ export const Contact: React.FC = () => {
     <section id="contact" className="py-20 md:py-28 bg-[#F5F7FA] border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Get In Touch"
+          eyebrow="24/7 Booking Helpline"
           title="CONTACT RAYYAN TRAVELS & CAB SERVICE"
-          description="Have questions about our rental cabs, airport transfers, or tour packages? Reach out to us through any of our direct contact channels."
+          description="Have questions about our All India tour packages, commercial rental cabs, Tempo Traveller, or airport transfers? Connect directly with our team."
           align="center"
         />
 
@@ -34,7 +35,7 @@ export const Contact: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-brand-blue-light text-brand-blue flex items-center justify-center font-bold">
                   i
                 </div>
-                Business Contact Information
+                Booking Helpline &amp; Business Information
               </h3>
 
               <div className="space-y-6 text-sm">
@@ -43,41 +44,42 @@ export const Contact: React.FC = () => {
                   <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider block mb-1">
                     Registered Business Name
                   </span>
-                  <span className="text-base font-bold text-brand-navy">
+                  <span className="text-base font-bold text-brand-navy block">
                     {BUSINESS_CONFIG.name}
+                  </span>
+                  <span className="text-xs font-semibold text-brand-gold uppercase tracking-wider">
+                    {BUSINESS_CONFIG.permitBadge}
                   </span>
                 </div>
 
-                {/* Phones */}
+                {/* Phones (Only 2 numbers) */}
                 <div className="pb-4 border-b border-slate-100">
                   <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider block mb-2">
                     Direct Phone Numbers
                   </span>
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <div>
                       <a
                         href={getCallHref(BUSINESS_CONFIG.phones.primaryClean)}
-                        className="inline-flex items-center gap-2.5 text-base font-extrabold text-brand-blue hover:text-brand-blue-hover transition-colors"
+                        className="inline-flex items-center gap-2.5 text-base sm:text-lg font-black text-brand-blue hover:text-brand-blue-hover transition-colors"
                       >
-                        <div className="w-7 h-7 rounded-lg bg-brand-blue-light flex items-center justify-center text-brand-blue">
+                        <div className="w-8 h-8 rounded-lg bg-brand-blue-light flex items-center justify-center text-brand-blue">
                           <Phone className="w-4 h-4" />
                         </div>
-                        {BUSINESS_CONFIG.phones.primary} (Primary Enquiries)
+                        <span>{BUSINESS_CONFIG.phones.primary} <span className="text-xs text-brand-gold font-bold bg-brand-navy px-2 py-0.5 rounded-full ml-1">Main Number</span></span>
                       </a>
                     </div>
-                    {BUSINESS_CONFIG.phones.additional.map((phone, idx) => (
-                      <div key={idx}>
-                        <a
-                          href={getCallHref(BUSINESS_CONFIG.phones.additionalClean[idx])}
-                          className="inline-flex items-center gap-2.5 text-sm font-semibold text-brand-navy hover:text-brand-blue transition-colors"
-                        >
-                          <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500">
-                            <Phone className="w-3.5 h-3.5" />
-                          </div>
-                          {phone}
-                        </a>
-                      </div>
-                    ))}
+                    <div>
+                      <a
+                        href={getCallHref(BUSINESS_CONFIG.phones.secondaryClean)}
+                        className="inline-flex items-center gap-2.5 text-sm sm:text-base font-bold text-brand-navy hover:text-brand-blue transition-colors"
+                      >
+                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500">
+                          <Phone className="w-3.5 h-3.5" />
+                        </div>
+                        <span>{BUSINESS_CONFIG.phones.secondary} <span className="text-xs text-brand-muted font-normal">(Secondary Helpline)</span></span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -115,7 +117,7 @@ export const Contact: React.FC = () => {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:underline"
                         >
-                          <span>View on Google Maps</span>
+                          <span>Open in Google Maps</span>
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                       </div>
@@ -126,11 +128,11 @@ export const Contact: React.FC = () => {
                 {/* Service Areas */}
                 <div>
                   <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider block mb-1">
-                    Primary Service Areas
+                    Service Coverage
                   </span>
                   <div className="flex items-center gap-2 text-brand-navy font-medium">
                     <Navigation className="w-4 h-4 text-brand-gold flex-shrink-0" />
-                    <span>Navsari and Surat, Gujarat (with outstation travel enquiries)</span>
+                    <span>All India Tour &amp; Cab Service • Pan-India Commercial Travel</span>
                   </div>
                 </div>
               </div>
@@ -145,7 +147,7 @@ export const Contact: React.FC = () => {
                 external
                 leftIcon={<MessageCircle className="w-4 h-4" />}
               >
-                WhatsApp Rayyan Travels
+                WhatsApp ({BUSINESS_CONFIG.phones.primary})
               </Button>
               <Button
                 variant="secondary"
@@ -153,7 +155,7 @@ export const Contact: React.FC = () => {
                 href={getCallHref(BUSINESS_CONFIG.phones.primaryClean)}
                 leftIcon={<Phone className="w-4 h-4" />}
               >
-                Call Primary Number
+                Call Main Number
               </Button>
             </div>
           </div>
@@ -167,7 +169,7 @@ export const Contact: React.FC = () => {
               </h3>
 
               <p className="text-sm text-brand-muted mb-6 leading-relaxed">
-                Rayyan Travels is conveniently located at Kolva, Taiwad Main Road, Navsari, serving customers across both Navsari and Surat districts with point-to-point pickups, airport drop-offs, and intercity trips.
+                Rayyan Travels is headquartered at Kolva, Taiwad Main Road, Navsari, operating with an All India Commercial Permit for interstate journeys, airport transfers (Surat, Mumbai, Ahmedabad), and long-distance tours.
               </p>
 
               {/* Map Direction Card Link */}
@@ -198,15 +200,18 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Verified Fleet badges */}
+              {/* Fleet & Permit Badges */}
               <div className="mt-6 pt-5 border-t border-slate-100 grid grid-cols-2 gap-3 text-xs">
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-brand-muted block text-[11px]">Local Bases:</span>
-                  <span className="font-bold text-brand-navy">Navsari &amp; Surat City</span>
+                  <span className="text-brand-muted block text-[11px]">Permit Category:</span>
+                  <span className="font-bold text-emerald-700 flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    All India Permit Taxi Passing
+                  </span>
                 </div>
                 <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                  <span className="text-brand-muted block text-[11px]">Fleet Vehicles:</span>
-                  <span className="font-bold text-brand-navy">Rumion, Innova, Urbania, Kia</span>
+                  <span className="text-brand-muted block text-[11px]">Commercial Fleet:</span>
+                  <span className="font-bold text-brand-navy">Urbania, Traveller, Crysta, Rumion, SUV, Sedan</span>
                 </div>
               </div>
             </div>

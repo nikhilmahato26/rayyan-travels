@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, CalendarCheck, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Phone, MessageCircle, CalendarCheck, ShieldCheck, ChevronRight, CheckCircle2 } from 'lucide-react';
 import type { Vehicle } from '../../data/vehicles';
 import { Button } from './Button';
 import { buildWhatsAppUrl, getVehicleEnquiryMessage } from '../../utils/whatsapp';
@@ -74,14 +74,22 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onSelectVehic
             <h3 className="text-xl font-bold text-brand-navy font-heading">
               {vehicle.name}
             </h3>
-            <span className="text-xs text-brand-muted bg-slate-100 px-2.5 py-1 rounded-md font-medium">
-              Verified Fleet
+            <span className="text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md font-semibold">
+              Taxi Passing
             </span>
           </div>
 
-          <p className="text-sm text-brand-muted leading-relaxed mb-5">
+          <p className="text-sm text-brand-muted leading-relaxed mb-4">
             {vehicle.description}
           </p>
+
+          {/* Passing Type Badge */}
+          {vehicle.passingType && (
+            <div className="flex items-center gap-1.5 text-xs text-brand-navy font-semibold bg-amber-50 border border-amber-200/80 p-2 rounded-xl mb-3">
+              <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" />
+              <span>{vehicle.passingType}</span>
+            </div>
+          )}
 
           <div className="flex items-center gap-2 text-xs text-brand-blue font-medium bg-brand-blue-light/60 p-2.5 rounded-xl mb-5">
             <ShieldCheck className="w-4 h-4 text-brand-blue flex-shrink-0" />

@@ -36,30 +36,34 @@ interface BookingPanelProps {
 }
 
 export const BookingPanel: React.FC<BookingPanelProps> = ({ 
-  initialService = 'Rental Cab', 
+  initialService = 'All India Tour', 
   initialVehicle = 'Any Available Vehicle' 
 }) => {
   const [submitted, setSubmitted] = useState(false);
   const today = new Date().toISOString().split('T')[0];
 
   const serviceOptions = [
+    "All India Tour",
     "Rental Cab",
+    "Group Travel (Urbania / Traveller)",
+    "Outstation Trip",
     "Airport Pickup",
     "Airport Drop",
     "Airport Round Trip",
+    "SUV / Sedan Cab",
     "Local City Cab",
-    "Outstation Trip",
     "Sightseeing",
-    "Tour Package",
-    "Corporate Ride",
     "Wedding or Event Transportation",
-    "Group Travel"
+    "Corporate Ride",
   ];
 
   const vehicleOptions = [
-    "Toyota Rumion",
     "Force Urbania",
+    "Tempo Traveller",
     "Toyota Innova Crysta",
+    "Toyota Rumion",
+    "SUV (Hyundai Venue & More)",
+    "Comfort Sedan",
     "Kia Vehicle",
     "Any Available Vehicle"
   ];
@@ -94,7 +98,7 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
       returnDate: data.returnDate,
       vehiclePreference: data.vehiclePreference,
       numberOfTravellers: data.numberOfTravellers,
-      additionalRequirements: 'Quick Booking Panel Enquiry',
+      additionalRequirements: 'Quick Booking Enquiry — All India Cab & Tour Service',
     });
 
     const whatsappUrl = buildWhatsAppUrl(formattedMessage, BUSINESS_CONFIG.phones.primaryClean);
@@ -110,19 +114,19 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-blue uppercase tracking-wider mb-1">
               <span className="w-2 h-2 rounded-full bg-brand-blue" />
-              Direct Cab Enquiry
+              All India Cab &amp; Tour Booking
             </div>
             <h2 className="text-xl sm:text-2xl font-black text-brand-navy font-heading">
-              Quick Cab Booking &amp; Rental Enquiry
+              Quick All India Cab &amp; Rental Enquiry
             </h2>
             <p className="text-xs sm:text-sm text-brand-muted mt-1">
-              Serving Navsari, Surat and outstation destinations. Direct response on WhatsApp &amp; Call.
+              All taxi passing commercial vehicles. Pan-India outstation travel &amp; local bookings.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs text-brand-navy bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl">
-            <Clock className="w-4 h-4 text-brand-gold flex-shrink-0" />
-            <span>Fast response: <strong>+91 7048241603</strong></span>
+          <div className="flex items-center gap-2 text-xs text-brand-navy bg-amber-50 border border-amber-200 px-3.5 py-2 rounded-xl">
+            <Clock className="w-4 h-4 text-amber-600 flex-shrink-0" />
+            <span>Main Helpline: <strong className="text-brand-navy text-sm font-extrabold">{BUSINESS_CONFIG.phones.primary}</strong></span>
           </div>
         </div>
 
@@ -136,7 +140,7 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
               Your booking details have been prepared for WhatsApp. Please press "Send" in WhatsApp to dispatch your enquiry directly to Rayyan Travels.
             </p>
             <div className="p-3 bg-white rounded-xl border border-emerald-100 text-xs text-slate-600 max-w-lg mx-auto">
-              <strong>Please Note:</strong> This is an enquiry request. Vehicle availability, pickup timing, and applicable rental charges will be confirmed by the business upon receipt.
+              <strong>All Taxi Passing Vehicles:</strong> Force Urbania, Tempo Traveller, Innova Crysta, Rumion, Hyundai Venue SUV, and Sedans available with All India Permit.
             </div>
             <button
               onClick={() => {
@@ -160,7 +164,7 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Navsari / Surat Railway Stn"
+                  placeholder="e.g. Navsari / Surat / Mumbai"
                   {...register('pickupLocation')}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-slate-50 focus:bg-white transition-colors focus:outline-none focus:ring-2 ${
                     errors.pickupLocation ? 'border-red-400 focus:ring-red-200' : 'border-slate-300 focus:ring-brand-blue/30 focus:border-brand-blue'
@@ -179,7 +183,7 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Surat Airport / Mumbai / Local"
+                  placeholder="e.g. Goa / Rajasthan / Shirdi / Outstation"
                   {...register('destination')}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-slate-50 focus:bg-white transition-colors focus:outline-none focus:ring-2 ${
                     errors.destination ? 'border-red-400 focus:ring-red-200' : 'border-slate-300 focus:ring-brand-blue/30 focus:border-brand-blue'
@@ -269,7 +273,7 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. 4 Passengers"
+                  placeholder="e.g. 4 Passengers / Group"
                   {...register('numberOfTravellers')}
                   className="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
                 />
@@ -283,7 +287,7 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
                 </label>
                 <input
                   type="tel"
-                  placeholder="e.g. 7048241603"
+                  placeholder="e.g. 8469429773"
                   {...register('phone')}
                   className={`w-full text-sm px-3.5 py-2.5 rounded-xl border bg-slate-50 focus:bg-white transition-colors focus:outline-none focus:ring-2 ${
                     errors.phone ? 'border-red-400 focus:ring-red-200' : 'border-slate-300 focus:ring-brand-blue/30 focus:border-brand-blue'
@@ -300,7 +304,7 @@ export const BookingPanel: React.FC<BookingPanelProps> = ({
               <div className="flex items-start gap-2 text-xs text-brand-muted max-w-xl">
                 <AlertCircle className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
                 <span>
-                  <strong>Important Note:</strong> This is a booking enquiry. Vehicle availability and applicable rental charges are confirmed by the business upon receipt of your request.
+                  <strong>All Taxi Passing Vehicles:</strong> Commercial permits with All India coverage. Vehicle availability and rental charges are confirmed by the business upon receipt.
                 </span>
               </div>
 

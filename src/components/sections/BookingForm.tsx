@@ -46,7 +46,7 @@ interface BookingFormProps {
 }
 
 export const BookingForm: React.FC<BookingFormProps> = ({
-  preselectedService = 'Rental Cab',
+  preselectedService = 'All India Tour',
   preselectedVehicle = 'Any Available Vehicle',
   preselectedRentalType = '',
 }) => {
@@ -54,24 +54,28 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const today = new Date().toISOString().split('T')[0];
 
   const serviceOptions = [
+    "All India Tour",
     "Rental Cab",
+    "Group Travel (Urbania / Traveller)",
+    "Outstation Trip",
     "Airport Pickup",
     "Airport Drop",
     "Airport Round Trip",
+    "SUV / Sedan Cab",
     "Local City Cab",
-    "Outstation Trip",
     "Sightseeing",
-    "Tour Package",
-    "Corporate Ride",
     "Wedding / Event",
-    "Group Transportation",
+    "Corporate Ride",
     "Other"
   ];
 
   const vehicleOptions = [
-    "Toyota Rumion",
     "Force Urbania",
+    "Tempo Traveller",
     "Toyota Innova Crysta",
+    "Toyota Rumion",
+    "SUV (Hyundai Venue & More)",
+    "Comfort Sedan",
     "Kia Vehicle",
     "Any Available Vehicle"
   ];
@@ -96,7 +100,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       pickupTime: '',
       vehiclePreference: preselectedVehicle,
       numberOfTravellers: '',
-      additionalRequirements: preselectedRentalType ? `Rental Plan: ${preselectedRentalType}` : '',
+      additionalRequirements: preselectedRentalType ? `Plan: ${preselectedRentalType}` : '',
     },
   });
 
@@ -114,7 +118,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
   useEffect(() => {
     if (preselectedRentalType) {
-      setValue('additionalRequirements', `Rental Plan: ${preselectedRentalType}`);
+      setValue('additionalRequirements', `Plan: ${preselectedRentalType}`);
     }
   }, [preselectedRentalType, setValue]);
 
@@ -144,7 +148,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Direct Reservation Enquiry"
-          title="LET'S PLAN YOUR RIDE"
+          title="LET'S PLAN YOUR ALL INDIA RIDE"
           description="Fill in your journey requirements below. We will receive your details directly on WhatsApp to check fleet availability and confirm your booking terms."
           align="center"
         />
@@ -157,13 +161,14 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 Booking Enquiry Prepared!
               </h3>
               <p className="text-sm text-brand-muted max-w-lg mx-auto leading-relaxed">
-                Your enquiry has been formatted and opened in WhatsApp. If your WhatsApp did not open automatically, click the button below to send your details.
+                Your enquiry has been formatted and opened in WhatsApp. If your WhatsApp did not open automatically, click the button below to send your details directly to our helpline.
               </p>
 
               <div className="p-4 bg-white rounded-xl border border-emerald-100 text-xs text-slate-600 max-w-md mx-auto text-left space-y-1">
                 <span className="font-bold text-emerald-800 block">Status: Enquiry Submitted for Review</span>
-                <span>• Our team will check vehicle availability and reply with applicable charges and terms.</span>
-                <span>• Direct support is also available at: <strong>{BUSINESS_CONFIG.phones.primary}</strong></span>
+                <span>• All Taxi Passing commercial vehicles with All India Permit.</span>
+                <span>• Primary Helpline: <strong>{BUSINESS_CONFIG.phones.primary}</strong></span>
+                <span>• Secondary Phone: <strong>{BUSINESS_CONFIG.phones.secondary}</strong></span>
               </div>
 
               <div className="pt-2 flex justify-center gap-3">
@@ -300,11 +305,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 <div>
                   <label className="block text-xs font-bold text-brand-navy mb-1.5 flex items-center gap-1.5">
                     <Navigation className="w-3.5 h-3.5 text-slate-400" />
-                    Destination <span className="text-xs text-brand-muted font-normal">(Optional for local services)</span>
+                    Destination / Tour Route <span className="text-xs text-brand-muted font-normal">(Optional for local)</span>
                   </label>
                   <input
                     type="text"
-                    placeholder="Enter destination / airport / city"
+                    placeholder="e.g. Outstation Tour / City / Airport"
                     {...register('destination')}
                     className="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
                   />
@@ -363,7 +368,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   </label>
                   <input
                     type="text"
-                    placeholder="e.g. 3 Adults, 1 Child"
+                    placeholder="e.g. 6 Passengers / Group"
                     {...register('numberOfTravellers')}
                     className="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
                   />
@@ -374,11 +379,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               <div>
                 <label className="block text-xs font-bold text-brand-navy mb-1.5 flex items-center gap-1.5">
                   <FileText className="w-3.5 h-3.5 text-slate-400" />
-                  Additional Requirements / Rental Duration <span className="text-xs text-brand-muted font-normal">(Optional)</span>
+                  Tour Requirements / Rental Duration <span className="text-xs text-brand-muted font-normal">(Optional)</span>
                 </label>
                 <textarea
                   rows={3}
-                  placeholder="Tell us about your rental schedule, specific luggage needs, or intermediate stops..."
+                  placeholder="Share details about your tour itinerary, interstate stops, luggage requirements..."
                   {...register('additionalRequirements')}
                   className="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
                 />
@@ -389,7 +394,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 <div className="flex items-start gap-2.5 text-xs text-brand-muted max-w-md">
                   <AlertCircle className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
                   <span>
-                    Submitting this form creates a direct WhatsApp enquiry to Rayyan Travels. Vehicle availability and rental charges are confirmed by the team.
+                    Submitting this form creates a direct WhatsApp enquiry to Rayyan Travels. All vehicles operate with commercial taxi permits and All India authorization.
                   </span>
                 </div>
 

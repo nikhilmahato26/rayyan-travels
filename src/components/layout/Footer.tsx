@@ -1,29 +1,29 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Shield, ExternalLink, CalendarCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, ExternalLink, CalendarCheck, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../../config/business';
 import { getCallHref, getEmailHref, getGoogleMapsHref, scrollToSection } from '../../utils/contact';
 
 export const Footer: React.FC = () => {
   const quickLinks = [
     { label: 'Home', id: 'hero' },
-    { label: 'Services', id: 'services' },
+    { label: 'All India Tours', id: 'tour-packages' },
     { label: 'Rental Cabs', id: 'rental-cabs' },
     { label: 'Our Fleet', id: 'fleet' },
-    { label: 'Tour Packages', id: 'tour-packages' },
+    { label: 'Services', id: 'services' },
     { label: 'Airport Transfers', id: 'airport-transfers' },
     { label: 'About Us', id: 'about' },
     { label: 'Contact', id: 'contact' },
   ];
 
-  const servicesList = [
-    { label: 'Airport Pickup & Drop', id: 'airport-transfers' },
-    { label: 'Local City Cabs', id: 'services' },
-    { label: 'Rental Cab Service', id: 'rental-cabs' },
-    { label: 'Outstation Trips', id: 'services' },
-    { label: 'Sightseeing', id: 'tour-packages' },
-    { label: 'Tour Packages', id: 'tour-packages' },
-    { label: 'Corporate Rides', id: 'services' },
-    { label: 'Event & Group Transportation', id: 'fleet' },
+  const fleetList = [
+    { label: 'Force Urbania (Luxury Van)', id: 'fleet' },
+    { label: 'Tempo Traveller (All India Permit)', id: 'fleet' },
+    { label: 'Toyota Innova Crysta', id: 'fleet' },
+    { label: 'Toyota Rumion MPV', id: 'fleet' },
+    { label: 'SUV (Hyundai Venue & More)', id: 'fleet' },
+    { label: 'Comfort Sedan Cabs', id: 'fleet' },
+    { label: 'Kia Vehicle Options', id: 'fleet' },
+    { label: 'All Taxi Passing Vehicles', id: 'fleet' },
   ];
 
   return (
@@ -41,19 +41,19 @@ export const Footer: React.FC = () => {
                 <span className="block text-xl font-black font-heading tracking-tight leading-tight text-white">
                   {BUSINESS_CONFIG.wordmark.primary}
                 </span>
-                <span className="block text-xs font-bold text-brand-gold tracking-widest uppercase">
-                  {BUSINESS_CONFIG.wordmark.secondary}
+                <span className="block text-[10px] font-bold text-brand-gold tracking-widest uppercase">
+                  ALL INDIA CAB &amp; TOUR SERVICE
                 </span>
               </div>
             </div>
 
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              Your dependable travel and cab partner in Navsari and Surat, Gujarat. Dedicated to safe, convenient, and reliable airport transfers, rental cabs, outstation trips, and group transportation.
+              Your dependable All India Tour and cab service partner. Offering complete taxi passing vehicles with All India commercial permits — from Force Urbania and Tempo Traveller to Innova Crysta, Rumion, SUVs, and Sedans.
             </p>
 
-            <div className="p-3 rounded-xl bg-brand-navy-dark/70 border border-white/10 text-xs text-gray-300 flex items-start gap-2.5">
-              <Shield className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
-              <span>{BUSINESS_CONFIG.disclaimerNote}</span>
+            <div className="p-3.5 rounded-xl bg-brand-navy-dark/70 border border-brand-gold/30 text-xs text-gray-200 flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
+              <span>{BUSINESS_CONFIG.permitBadge}</span>
             </div>
           </div>
 
@@ -78,21 +78,21 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Travel Services */}
+          {/* Column 3: Fleet & Vehicles */}
           <div>
             <h4 className="text-base font-bold text-brand-gold font-heading uppercase tracking-wider mb-5 flex items-center gap-2">
               <span className="w-1.5 h-4 bg-brand-gold rounded-full" />
-              Our Services
+              Our Vehicle Fleet
             </h4>
             <ul className="space-y-2.5">
-              {servicesList.map((service, index) => (
+              {fleetList.map((item, index) => (
                 <li key={index}>
                   <button
-                    onClick={() => scrollToSection(service.id)}
+                    onClick={() => scrollToSection(item.id)}
                     className="text-sm text-gray-300 hover:text-brand-gold transition-colors flex items-center gap-2"
                   >
                     <span className="text-brand-gold/60">›</span>
-                    {service.label}
+                    {item.label}
                   </button>
                 </li>
               ))}
@@ -103,36 +103,33 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-base font-bold text-brand-gold font-heading uppercase tracking-wider mb-5 flex items-center gap-2">
               <span className="w-1.5 h-4 bg-brand-gold rounded-full" />
-              Contact &amp; Location
+              Helpline &amp; Location
             </h4>
 
             <div className="space-y-3.5 text-sm">
-              {/* Phone Numbers */}
+              {/* Phone Numbers (Only 2 numbers) */}
               <div>
-                <span className="text-xs text-gray-400 block mb-1">Direct Call Enquiries:</span>
-                <div className="space-y-1">
+                <span className="text-xs text-gray-400 block mb-1.5">Direct Booking Helplines:</span>
+                <div className="space-y-2">
                   <a
                     href={getCallHref(BUSINESS_CONFIG.phones.primaryClean)}
-                    className="text-white hover:text-brand-gold font-bold flex items-center gap-2 transition-colors"
+                    className="text-white hover:text-brand-gold font-bold flex items-center gap-2 transition-colors text-base"
                   >
                     <Phone className="w-4 h-4 text-brand-gold" />
-                    {BUSINESS_CONFIG.phones.primary} (Primary)
+                    <span>{BUSINESS_CONFIG.phones.primary} <span className="text-xs text-brand-gold font-normal">(Main)</span></span>
                   </a>
-                  {BUSINESS_CONFIG.phones.additional.map((phone, idx) => (
-                    <a
-                      key={idx}
-                      href={getCallHref(BUSINESS_CONFIG.phones.additionalClean[idx])}
-                      className="text-gray-300 hover:text-brand-gold flex items-center gap-2 transition-colors text-xs"
-                    >
-                      <Phone className="w-3.5 h-3.5 text-gray-400" />
-                      {phone}
-                    </a>
-                  ))}
+                  <a
+                    href={getCallHref(BUSINESS_CONFIG.phones.secondaryClean)}
+                    className="text-gray-300 hover:text-brand-gold font-semibold flex items-center gap-2 transition-colors text-sm"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-gray-400" />
+                    <span>{BUSINESS_CONFIG.phones.secondary} <span className="text-xs text-gray-400 font-normal">(Secondary)</span></span>
+                  </a>
                 </div>
               </div>
 
               {/* Email */}
-              <div className="pt-2">
+              <div className="pt-1">
                 <span className="text-xs text-gray-400 block mb-1">Email Enquiries:</span>
                 <a
                   href={getEmailHref()}
@@ -144,7 +141,7 @@ export const Footer: React.FC = () => {
               </div>
 
               {/* Address */}
-              <div className="pt-2">
+              <div className="pt-1">
                 <span className="text-xs text-gray-400 block mb-1">Office Address:</span>
                 <div className="flex items-start gap-2 text-gray-300 text-xs leading-relaxed">
                   <MapPin className="w-4 h-4 text-brand-gold flex-shrink-0 mt-0.5" />
@@ -177,7 +174,7 @@ export const Footer: React.FC = () => {
               Book Online Enquiry
             </button>
             <span>•</span>
-            <span>Serving Navsari &amp; Surat, Gujarat</span>
+            <span>All India Tour &amp; Commercial Taxi Service</span>
           </div>
         </div>
       </div>
