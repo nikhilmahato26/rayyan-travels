@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
+import { TimePicker } from '../ui/TimePicker';
 import { BUSINESS_CONFIG } from '../../config/business';
 import { buildWhatsAppUrl, formatBookingEnquiryWhatsAppMessage } from '../../utils/whatsapp';
 
@@ -84,6 +85,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     register,
     handleSubmit,
     setValue,
+    watch,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<BookingFormValues>({
@@ -103,6 +105,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       additionalRequirements: preselectedRentalType ? `Plan: ${preselectedRentalType}` : '',
     },
   });
+
+  const pickupTimeValue = watch('pickupTime');
 
   useEffect(() => {
     if (preselectedService) {
@@ -354,10 +358,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     <Clock className="w-3.5 h-3.5 text-slate-400" />
                     Pickup Time <span className="text-xs text-brand-muted font-normal">(Optional)</span>
                   </label>
-                  <input
-                    type="time"
-                    {...register('pickupTime')}
-                    className="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
+                  <TimePicker
+                    value={pickupTimeValue}
+                    onChange={(val) => setValue('pickupTime', val, { shouldValidate: true, shouldDirty: true })}
+                    placeholder="Select pickup time (e.g. 06:45 AM)"
+                    variant="light"
                   />
                 </div>
 

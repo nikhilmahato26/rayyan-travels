@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Plane, CalendarCheck, Clock, MapPin, Navigation, Car, Phone, ArrowRight, ShieldCheck } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
+import { TimePicker } from '../ui/TimePicker';
 import { BUSINESS_CONFIG } from '../../config/business';
 import { buildWhatsAppUrl } from '../../utils/whatsapp';
 
@@ -189,11 +190,11 @@ export const AirportTransfers: React.FC<AirportTransfersProps> = ({ onQuickBookA
                   <Clock className="w-3.5 h-3.5 text-gray-400" />
                   Pickup Time <span className="text-gray-400 font-normal">(Optional)</span>
                 </label>
-                <input
-                  type="time"
+                <TimePicker
                   value={pickupTime}
-                  onChange={(e) => setPickupTime(e.target.value)}
-                  className="w-full text-sm px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-gold focus:bg-white/20"
+                  onChange={setPickupTime}
+                  placeholder="Select pickup time (e.g. 06:45 AM)"
+                  variant="dark"
                 />
               </div>
 
